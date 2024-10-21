@@ -1,0 +1,24 @@
+public class HighwaySystem{
+  public static int getSpeedLimit(Vehicle v){
+    return v.getSpeedLimit();  
+  }
+}
+interface Vehicle{
+ public int getSpeedLimit();  
+}
+
+class Car implements Vehicle{
+  public int getSpeedLimit(){
+    return 120;
+  }  
+}
+class Bus implements Vehicle{
+  public int getSpeedLimit(){
+    return 20;
+  }  
+}
+class Bike implements Vehicle{
+  public int getSpeedLimit(){
+    return 80;
+  }  
+}
