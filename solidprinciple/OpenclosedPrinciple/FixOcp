@@ -1,0 +1,67 @@
+// Base interface for different payment methods
+interface PaymentMethod {
+    void processPayment();
+}
+
+// Concrete class for Credit Card payment
+class CreditCardPayment implements PaymentMethod {
+    @Override
+    public void processPayment() {
+        System.out.println("Processing credit card payment...");
+        // Logic for processing credit card payment
+    }
+}
+
+// Concrete class for PayPal payment
+class PayPalPayment implements PaymentMethod {
+    @Override
+    public void processPayment() {
+        System.out.println("Processing PayPal payment...");
+        // Logic for processing PayPal payment
+    }
+}
+
+// Concrete class for Bank Transfer payment
+class BankTransferPayment implements PaymentMethod {
+    @Override
+    public void processPayment() {
+        System.out.println("Processing bank transfer payment...");
+        // Logic for processing bank transfer payment
+    }
+}
+
+// The PaymentProcessor class is open for extension but closed for modification
+class PaymentProcessor {
+    public void process(PaymentMethod paymentMethod) {
+        paymentMethod.processPayment();
+    }
+}
+
+public class PaymentSystem {
+    public static void main(String[] args) {
+        PaymentProcessor paymentProcessor = new PaymentProcessor();
+
+        // Process different payments without modifying PaymentProcessor
+        PaymentMethod creditCardPayment = new CreditCardPayment();
+        paymentProcessor.process(creditCardPayment);
+
+        PaymentMethod paypalPayment = new PayPalPayment();
+        paymentProcessor.process(paypalPayment);
+
+        PaymentMethod bankTransferPayment = new BankTransferPayment();
+        paymentProcessor.process(bankTransferPayment);
+
+        // If a new payment method like cryptocurrency is added, we just need to create a new class
+        PaymentMethod cryptoPayment = new CryptocurrencyPayment();
+        paymentProcessor.process(cryptoPayment);
+    }
+}
+
+// New payment method: Cryptocurrency
+class CryptocurrencyPayment implements PaymentMethod {
+    @Override
+    public void processPayment() {
+        System.out.println("Processing cryptocurrency payment...");
+        // Logic for processing cryptocurrency payment
+    }
+}
