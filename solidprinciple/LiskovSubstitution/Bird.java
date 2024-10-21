@@ -12,6 +12,9 @@ public class Bird {
 		Bird b2=new Penguin();
 		//b2.fly();
 	}
+	//Initially we have have fly and walk method inside the bird but all birds cannot fly which leads to violation of liskov as i cannot pass any implementation of 
+	//parent class(bird), so to prevent violation only common functionality kept inside bird and other attributes we can have via interface and class like Flyable
+	etc
 }
 
 class FlyingBird extends Bird{
