@@ -1,0 +1,33 @@
+public class HighwaySystem{
+Car car;
+Bike bike;
+Bus bus;
+public int getSpeedLimit(String identifier){
+    if(identifier.equals("car")){
+      return car.getSpeedLimit();
+    }
+    else if(identifier.equals("bus")){
+      return bus.getSpeedLimit();
+    }
+    else return bike.getSpeedLimit("bike");
+}
+}
+
+class Car{
+  public int getSpeedLimit(){
+    return 120;
+  }
+}
+class Bike{
+  public int getSpeedLimit(){
+    return 220;
+  }
+}
+class Bus{
+  public int getSpeedLimit(){
+    return 80;
+  }
+}
+//Problem
+//as num of vehicle increase that much number of if else are required.
+//violating O of solid
